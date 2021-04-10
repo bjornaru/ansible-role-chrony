@@ -1,0 +1,13 @@
+---
+
+# Role: bjornaru.chrony
+# File: handlers/main.yml
+
+- name: service_chrony
+  become: yes
+  service:
+    name: "{{ chrony_service_name }}"
+    enabled: "{{ chrony_service_enabled }}"
+    state: "{{ chrony_service_state }}"
+
+...

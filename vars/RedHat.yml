@@ -1,0 +1,10 @@
+---
+
+# Role: bjornaru.chrony
+# File: vars/RedHat.yml
+
+chrony_driftfile: /var/lib/chrony/drift
+chrony_conf_dest: /etc/chrony.conf
+chrony_service_name: chronyd
+
+...

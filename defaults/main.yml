@@ -1,0 +1,19 @@
+---
+
+# Role: bjornaru.chrony
+# File: defaults/main.yml
+
+chrony_package_name: chrony
+chrony_package_state: latest
+
+chrony_service_enabled: yes
+chrony_service_state: restarted
+
+chrony_servers:
+  - 0.no.pool.ntp.org
+  - 1.no.pool.ntp.org
+  - 2.no.pool.ntp.org
+  - 3.no.pool.ntp.org
+
+...
+

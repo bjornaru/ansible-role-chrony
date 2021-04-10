@@ -1,0 +1,28 @@
+---
+
+# Role: bjornaru.chrony
+# File: tasks/main.yml
+
+- name: (chrony) - Include distribution specific vars
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: (chrony) - Install Chrony package
+  become: yes
+  package:
+    name: "{{ chrony_package_name }}"
+    state: "{{ chrony_package_state }}"
+
+- name: (chrony) - Template out {{ chrony_conf_dest }}
+  become: yes
+  template:
+    src: chrony.conf.j2
+    dest: "{{ chrony_conf_dest }}"
+    mode: 0644
+    owner: root
+    group: root
+    backup: yes
+  notify: service_chrony
+
+- meta: flush_handlers
+
+...

@@ -1,0 +1,12 @@
+
+{% for chrony_server in chrony_servers %}
+server {{ chrony_server }} iburst
+{% endfor %}
+
+# Record the rate at which the system clock gains/losses time.
+driftfile {{ chrony_driftfile }} 
+
+# In first three updates step the system clock instead of slew
+# if the adjustment is larger than 0.1 second.
+makestep 0.1 3
+
